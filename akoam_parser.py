@@ -123,4 +123,5 @@ def put_file_sftp(mov_name):
 #get_movie_link("https://w5.akoam.net/180496/%D9%81%D9%8A%D9%84%D9%85-Herbie-Fully-Loaded-2005-%D9%85%D8%AF%D8%A8%D9%84%D8%AC-%D9%84%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9")
 #get_movie_download_link("https://w5.akoam.net/download/4f0d13487dd0/Apparition-2019-1080p-WEB-DL-akoam-net-mkv")
 #get_movie_name("https://w5.akoam.net/180489/%D9%81%D9%8A%D9%84%D9%85-The-Bad-Guys-Reign-of-Chaos-2019-%D9%85%D8%AA%D8%B1%D8%AC%D9%85")
-go_to_menu_item("https://w5.akoam.net/cat/155/%D8%A7%D9%84%D8%A3%D9%81%D9%84%D8%A7%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9")
+if __name__ == "__main__":
+    go_to_menu_item("https://w5.akoam.net/cat/155/%D8%A7%D9%84%D8%A3%D9%81%D9%84%D8%A7%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9")

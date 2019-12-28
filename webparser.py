@@ -99,8 +99,6 @@ def put_file_sftp(mov_name):
 
 #url = 'https://bg.stream.fushaar.com/media/29077/29077.mp4'
 #urllib.request.urlretrieve(url, '/directory/'+movie_name+'.mp4')
-if __name__ == "__main__":
-    go_to_page()
 # loop around all pages
 # last page is the end of loop
 # call above to read movies in every iteration
