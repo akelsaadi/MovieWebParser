@@ -29,7 +29,7 @@ def get_links(content):
             #print (sftp_link)
             #url = 'https://bg.stream.fushaar.com/media/29077/29077.mp4'
             print("getting movie...")
-            urllib.request.urlretrieve(sftp_link, '/Users/alielsaadi/downloads/' + movie_name + '.mp4')
+            urllib.request.urlretrieve(sftp_link, 'C:/Users/keyDownloads/' + movie_name + '.mp4')
             print("putting movie...")
             put_file_sftp(movie_name)
             break
@@ -80,7 +80,7 @@ def get_movie_name(url):
 
 def put_file_sftp(mov_name):
     srv = pysftp.Connection(host="78.46.95.40", username="alimov",password="alimov",default_path='/home/new')
-    srv.put('/Users/alielsaadi/downloads/' + mov_name + '.mp4')
+    srv.put('C:/Users/keyDownloads/' + mov_name + '.mp4')
     data = srv.listdir()
     srv.close()
 
