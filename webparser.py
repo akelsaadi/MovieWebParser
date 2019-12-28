@@ -26,7 +26,7 @@ def get_links(content):
             #print("Name:" + movie_name)
             #get_imdb_info(movie_name)
             sftp_link = get_watching_links(movie_link)
-            if sftp_link != "":
+            if sftp_link is not None:
                 #print (sftp_link)
                 #url = 'https://bg.stream.fushaar.com/media/29077/29077.mp4'
                 print("getting movie...")
