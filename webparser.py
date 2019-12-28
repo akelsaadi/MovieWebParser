@@ -4,6 +4,7 @@ import pysftp
 import sys
 import urllib.request
 import ssl
+import pathlib
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -30,10 +31,13 @@ def get_links(content):
                 try:
                     #print (sftp_link)
                     #url = 'https://bg.stream.fushaar.com/media/29077/29077.mp4'
-                    print("getting movie...")
-                    urllib.request.urlretrieve(sftp_link, 'C:/Users/key/Downloads/movies/' + movie_name + '.mp4')
-                    print("putting movie...")
-                    put_file_sftp(movie_name)
+                    if pathlib.Path('C:/Users/key/Downloads/movies/' + movie_name + '.mp4').exists():
+                        print("File Exists")
+                    else:
+                        print("getting movie...")
+                        urllib.request.urlretrieve(sftp_link, 'C:/Users/key/Downloads/movies/' + movie_name + '.mp4')
+                        print("putting movie...")
+                        put_file_sftp(movie_name)
                 except:
                     pass
 
