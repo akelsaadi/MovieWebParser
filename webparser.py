@@ -26,13 +26,13 @@ def get_links(content):
             #print("Name:" + movie_name)
             #get_imdb_info(movie_name)
             sftp_link = get_watching_links(movie_link)
-            #print (sftp_link)
-            #url = 'https://bg.stream.fushaar.com/media/29077/29077.mp4'
-            print("getting movie...")
-            urllib.request.urlretrieve(sftp_link, 'C:/Users/keyDownloads/' + movie_name + '.mp4')
-            print("putting movie...")
-            put_file_sftp(movie_name)
-            break
+            if sftp_link != "":
+                #print (sftp_link)
+                #url = 'https://bg.stream.fushaar.com/media/29077/29077.mp4'
+                print("getting movie...")
+                urllib.request.urlretrieve(sftp_link, 'C:/Users/key/Downloads/movies/' + movie_name + '.mp4')
+                print("putting movie...")
+                put_file_sftp(movie_name)
 
 
 #gets the last page
@@ -79,8 +79,10 @@ def get_movie_name(url):
 
 
 def put_file_sftp(mov_name):
-    srv = pysftp.Connection(host="78.46.95.40", username="alimov",password="alimov",default_path='/home/new')
-    srv.put('C:/Users/keyDownloads/' + mov_name + '.mp4')
+    cnopts = pysftp.CnOpts()
+    cnopts.hostkeys = None
+    srv = pysftp.Connection(host="78.46.95.40", username="alimov",password="alimov", cnopts=cnopts, default_path='/home/alimov')
+    srv.put('C:/Users/key/Downloads/movies/' + mov_name + '.mp4')
     data = srv.listdir()
     srv.close()
 
