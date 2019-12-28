@@ -27,12 +27,15 @@ def get_links(content):
             #get_imdb_info(movie_name)
             sftp_link = get_watching_links(movie_link)
             if sftp_link is not None:
-                #print (sftp_link)
-                #url = 'https://bg.stream.fushaar.com/media/29077/29077.mp4'
-                print("getting movie...")
-                urllib.request.urlretrieve(sftp_link, 'C:/Users/key/Downloads/movies/' + movie_name + '.mp4')
-                print("putting movie...")
-                put_file_sftp(movie_name)
+                try:
+                    #print (sftp_link)
+                    #url = 'https://bg.stream.fushaar.com/media/29077/29077.mp4'
+                    print("getting movie...")
+                    urllib.request.urlretrieve(sftp_link, 'C:/Users/key/Downloads/movies/' + movie_name + '.mp4')
+                    print("putting movie...")
+                    put_file_sftp(movie_name)
+                except:
+                    pass
 
 
 #gets the last page
