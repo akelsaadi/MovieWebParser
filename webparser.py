@@ -1,4 +1,3 @@
-import requests
 from bs4 import BeautifulSoup
 import cfscrape
 import pysftp
@@ -30,7 +29,7 @@ def get_links(content):
             #print (sftp_link)
             #url = 'https://bg.stream.fushaar.com/media/29077/29077.mp4'
             print("getting movie...")
-            urllib.request.urlretrieve(sftp_link, '/Users/alielsaadi/downloads' + movie_name + '.mp4')
+            urllib.request.urlretrieve(sftp_link, '/Users/alielsaadi/downloads/' + movie_name + '.mp4')
             print("putting movie...")
             put_file_sftp(movie_name)
             break
@@ -58,7 +57,7 @@ def get_watching_links(link):
         if ".mp4" in watching_link:
         #link_number = link_number + 1
             print ("link " + str(link_number) + ": " + watching_link)
-            #return (watching_link)
+            return (watching_link)
             break
 
 
@@ -81,7 +80,7 @@ def get_movie_name(url):
 
 def put_file_sftp(mov_name):
     srv = pysftp.Connection(host="78.46.95.40", username="alimov",password="alimov",default_path='/home/new')
-    srv.put('/Users/alielsaadi/downloads' + mov_name + '.mp4')
+    srv.put('/Users/alielsaadi/downloads/' + mov_name + '.mp4')
     data = srv.listdir()
     srv.close()
 
@@ -91,7 +90,8 @@ def put_file_sftp(mov_name):
 
 #url = 'https://bg.stream.fushaar.com/media/29077/29077.mp4'
 #urllib.request.urlretrieve(url, '/directory/'+movie_name+'.mp4')
-go_to_page()
+if __name__ == "__main__":
+    go_to_page()
 # loop around all pages
 # last page is the end of loop
 # call above to read movies in every iteration
